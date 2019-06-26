@@ -1,0 +1,1 @@
+alter table t_school add column `img` varchar(128) DEFAULT NULL COMMENT '路径';

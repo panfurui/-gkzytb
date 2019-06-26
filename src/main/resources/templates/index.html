@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Hello World!</title>
+</head>
+<body>
+
+<h1>文章提交测试</h1>
+<form method="POST" enctype="multipart/form-data" action="/article">
+    <p>标题：<input type="text" name="title" /></p>
+    <p>描述：<input type="text" name="description" /></p>
+    <p>图片：<input type="file" name="file" /></p>
+    <p><input type="submit" value="提交" /></p>
+</form>
+<hr>
+
+<h1>项目提交测试</h1>
+<form method="POST" enctype="multipart/form-data" action="/project">
+    <p>项目名：<input type="text" name="name" /></p>
+    <p>学生姓名：<input type="text" name="studentName" /></p>
+    <p>年龄：<input type="text" name="age" /></p>
+    <p>区域：<input type="text" name="area" /></p>
+    <p>地址：<input type="text" name="address" /></p>
+    <p>资助类型：<input type="text" name="financialType" /></p>
+    <p>需求描述：<input type="text" name="description" /></p>
+    <p>图片：<input type="file" name="file" /></p>
+    <p><input type="submit" value="提交" /></p>
+</form>
+<hr>
+
+<h1>留言板提交测试</h1>
+<form method="POST" enctype="multipart/form-data" action="/messageboard">
+    <p>用户id(隐藏)：<input type="text" name="userId" /></p>
+    <p>描述：<input type="text" name="description" /></p>
+    <p>图片：<input type="file" name="file" /></p>
+    <p><input type="submit" value="提交" /></p>
+</form>
+<hr>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.db.major.MajorMapper">
+
+    <resultMap id="resultMap"
+               type="com.demo.major.entity.Major"/>
+    <select id="selectByKey" resultType="com.demo.major.entity.Major">
+        select m.*, s.name as school_name from t_major as m
+        left join t_school as s on m.school_id = s.id
+        where m.name LIKE concat('%', #{keyword},'%')
+    </select>
+
+</mapper>

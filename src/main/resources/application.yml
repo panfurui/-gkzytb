@@ -1,0 +1,46 @@
+server.port: 8090
+server.ip: 127.0.0.1
+
+file.path: d:/root/temp
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 5MB
+  redis:
+    password:
+    database: 0
+    port: 6379
+    host: 127.0.0.1
+    timeout: 0
+  datasource:
+    url: "jdbc:mariadb://127.0.0.1:3306/zytbpt"
+    driver-class-name: "org.mariadb.jdbc.Driver"
+    username: "root"
+    password: "root"
+  flyway:
+    url: ${spring.datasource.url}
+    password: ${spring.datasource.password}
+    locations: classpath:/db
+    user: ${spring.datasource.username}
+    clean-disabled: true
+
+
+mybatis:
+#  type-aliases-package: com.mingdutech.truck.websocket.entity
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+mapper:
+  mappers:
+  - com.demo.util.TkMapper
+  not-empty: false
+  identity: MYSQL
+  style: camelhumpAndLowercase
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

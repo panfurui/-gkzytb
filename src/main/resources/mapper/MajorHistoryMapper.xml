@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.db.major.MajorHistoryMapper">
+
+    <resultMap id="resultMap"
+               type="com.demo.major.entity.MajorHistory"/>
+
+    <select id="selectByKeyword" resultMap="resultMap">
+        select * from t_major_history
+        where `subject_category` = #{subjectCategory} and `year` = #{year}
+        <if test="keyword != null">
+            and (`area` LIKE concat('%', #{keyword},'%') or `major_name` LIKE concat('%', #{keyword},'%')  or `school_name` LIKE concat('%', #{keyword},'%'))
+        </if>
+        order by `lowest` desc
+    </select>
+
+</mapper>
